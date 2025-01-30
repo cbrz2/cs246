@@ -1,0 +1,33 @@
+#include <iostream>
+class NewValue {
+private:
+  int value;
+public:
+  NewValue() : value(1) {}
+  NewValue(const NewValue& other) : value(other.value) {}
+  NewValue& operator=(const NewValue& other) {
+    if (this != &other) {
+      value = other.value;
+    }
+    return *this;
+  }
+  ~NewValue() {
+    std::cout << "No more" << std::endl;
+  }
+  int GetValue() const {
+    return value;
+  }
+  void SetValue(int newValue) {
+    if (newValue > 0) {
+      value = newValue;
+    }
+  }
+};
+int main() {
+  NewValue obj1;
+  NewValue obj2;
+  obj1.SetValue(5);
+  std::cout << obj1.GetValue() << std::endl;
+  std::cout << obj2.GetValue() << std::endl;
+  return 0;
+}

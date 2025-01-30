@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+std::string format(const std::string& input) {
+    // Check if the input contains only letters and spaces
+    for (char ch : input) {
+        if (!std::isalpha(ch) && !std::isspace(ch)) {
+            return "";
+        }
+    }
+
+    std::string result;
+    bool capitalizeNext = false;
+
+    for (size_t i = 0; i < input.length(); ++i) {
+        char ch = input[i];
+        if (std::isspace(ch)) {
+            capitalizeNext = true;
+        } else {
+            if (capitalizeNext) {
+                result += std::toupper(ch);
+                capitalizeNext = false;
+            } else {
+                result += std::tolower(ch);
+            }
+        }
+    }
+
+    return result;
+}
+
+int main() {
+    std::string testStr = "Hello World This Is A Test";
+    std::string formattedStr = format(testStr);
+
+    if (!formattedStr.empty()) {
+        std::cout << "Formatted String: " << formattedStr << std::endl;
+    } else {
+        std::cout << "Invalid input string." << std::endl;
+    }
+
+    return 0;
+}
