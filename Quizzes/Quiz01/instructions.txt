@@ -1,0 +1,8 @@
+Create a header file named 'Perfect.h'. Within the header file:
+	* add the header guard.
+	* create a namespace named 'dsq'
+	* within the namespace define an integer function
+	named 'Sigma' that takes a nonnegative integer 
+	parameter and returns the sum of all the integers that
+	are factors of the parameter
+
