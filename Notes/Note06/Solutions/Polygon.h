@@ -75,7 +75,7 @@ namespace dsn
             }
         }
 
-        RegularPolygon& increment() 
+        virtual RegularPolygon& increment() 
         {
             length += 1;
             return *this;
@@ -131,7 +131,7 @@ namespace dsn
             RegularPolygon::setLength(value);
         }
 
-        Square& increment() 
+        Square& increment() override 
         {
             RegularPolygon::increment().RegularPolygon::increment();
             return *this;
