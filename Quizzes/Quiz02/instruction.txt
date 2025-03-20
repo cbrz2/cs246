@@ -1,0 +1,20 @@
+For the algorithm below
+size_t S(size_t x)
+{
+	size_t sum = 0;
+	size_t i = 2;
+
+	while(i < x)
+	{
+		if(x % i != 0)
+		{
+			sum += i;
+		}
+		i += 1;
+	}
+	return sum;
+}
+
+1. state the runtime factor.
+2. construct the runtime table. 
+3. calculate the runtime function with all cost equal to 1.
